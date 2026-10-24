@@ -1,0 +1,87 @@
+name: 不具合報告
+description: パッチ失敗、クラッシュ、広告残りを報告します
+title: '[Bug] '
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |-
+        再現可能な不具合を報告します。対象環境、再現手順、期待した結果と実際の結果を整理してください。
+        導入・利用・開発方法は [README](https://github.com/roflsunriz/vpass-revanced/blob/HEAD/README.md) を確認してください。
+        本文と添付に秘密情報や個人情報を含めないでください。脆弱性の詳細は公開せず、[セキュリティ方針](https://github.com/roflsunriz/vpass-revanced/blob/HEAD/SECURITY.md) を確認してください。
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: 事前確認
+      options:
+        - label: 同じ内容の既存Issueを検索しました。
+          required: true
+        - label: READMEと関連する利用・更新手順を確認しました。
+          required: true
+  - type: input
+    id: app-version
+    attributes:
+      label: Vpass アプリ版
+    validations:
+      required: true
+  - type: input
+    id: manager-version
+    attributes:
+      label: ReVanced Manager / CLI版
+    validations:
+      required: true
+  - type: dropdown
+    id: input-format
+    attributes:
+      label: 入力形式
+      options:
+        - APK
+        - XAPKから統合
+        - APKMから統合
+        - APKSから統合
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: 対象環境
+      description: OS、端末、アプリ・ツールの版、導入方法、関連する設定を秘密情報を除いて記載してください。
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 再現手順
+      description: 再現手順と実際の結果を、関連する入力欄と合わせて説明してください。
+    validations:
+      required: true
+  - type: textarea
+    id: expected-result
+    attributes:
+      label: 期待した結果
+    validations:
+      required: true
+  - type: textarea
+    id: actual-result
+    attributes:
+      label: 実際の結果
+      description: エラーは秘密情報だけを除いて記載してください。
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: 秘密情報を除いたログ
+  - type: textarea
+    id: additional
+    attributes:
+      label: 補足
+      description: 発生頻度、直前の更新、影響範囲、回避策など。
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: 公開情報の確認
+      options:
+        - label: 本文・ログ・画像・添付から、認証情報、Cookie、トークン、秘密鍵、個人情報を除いたことを確認しました。
+          required: true

@@ -1,0 +1,60 @@
+name: ドキュメント報告
+description: 説明不足や手順誤りを報告します
+title: '[Docs] '
+labels:
+  - documentation
+body:
+  - type: markdown
+    attributes:
+      value: |-
+        文書の該当箇所と、現在の問題・期待する説明を共有してください。
+        導入・利用・開発方法は [README](https://github.com/roflsunriz/vpass-revanced/blob/HEAD/README.md) を確認してください。
+        本文と添付に秘密情報や個人情報を含めないでください。脆弱性の詳細は公開せず、[セキュリティ方針](https://github.com/roflsunriz/vpass-revanced/blob/HEAD/SECURITY.md) を確認してください。
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: 事前確認
+      options:
+        - label: 同じ内容の既存Issueを検索しました。
+          required: true
+        - label: READMEと関連する利用・更新手順を確認しました。
+          required: true
+  - type: input
+    id: page
+    attributes:
+      label: 対象ドキュメント
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: 現在の問題
+      description: 問題と望ましい説明を、現在の問題と期待する説明の入力欄で説明してください。
+    validations:
+      required: true
+  - type: textarea
+    id: location-details
+    attributes:
+      label: 該当箇所
+      description: URL、ファイルパス、見出しなど。
+    validations:
+      required: true
+  - type: textarea
+    id: expected-explanation
+    attributes:
+      label: 期待する説明
+      description: 正しい内容、修正案、追加してほしい説明を記載してください。
+    validations:
+      required: true
+  - type: textarea
+    id: additional
+    attributes:
+      label: 補足
+      description: 参考資料やスクリーンショット。
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: 公開情報の確認
+      options:
+        - label: 本文・ログ・画像・添付から、認証情報、Cookie、トークン、秘密鍵、個人情報を除いたことを確認しました。
+          required: true

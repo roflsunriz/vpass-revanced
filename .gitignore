@@ -1,2 +1,10 @@
 COMMON-AGENTS.md
-vpass-apks
+vpass-apks/
+.analysis/
+.gradle/
+**/build/
+build/
+dist/
+output/
+local.properties
+subagents/

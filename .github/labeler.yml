@@ -1,0 +1,20 @@
+patch:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "patches/**"
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*.md"
+          - "docs/**"
+automation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/**"
+          - "scripts/**"
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "gradle/**"
+          - "**/*.gradle.kts"
+          - "gradle.properties"
