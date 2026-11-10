@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- ReVanced Managerへ登録するJSON配布URLを `raw.githubusercontent.com` に統一した。
+- 最新の公開リリースに限り、配布用patches.jsonを既定ブランチへ同期する処理を追加し、次回リリース後もraw URLのJSONが更新されるようにした。
+
+
 ## [0.1.0] - 2026-10-24
 
 ### Added

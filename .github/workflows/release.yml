@@ -59,3 +59,33 @@ jobs:
           --verify-tag
           --title "v${{ steps.version.outputs.version }}"
           --notes-file dist/release-notes.md
+
+      - name: Publish patches.json to the default branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MANIFEST_PATH: dist/patches.json
+        shell: bash
+        run: |
+          set -euo pipefail
+          latest_tag="$(gh api "repos/$GITHUB_REPOSITORY/releases/latest" --jq .tag_name)"
+          if [[ "$latest_tag" != "$GITHUB_REF_NAME" ]]; then
+            echo "Skipping manifest update for a release that is not the latest."
+            exit 0
+          fi
+          jq -e --arg version "${GITHUB_REF_NAME#v}" \
+            '(.version | ltrimstr("v")) == $version and
+             (.download_url | type == "string") and
+             (.created_at | type == "string") and
+             (.description | type == "string")' "$MANIFEST_PATH" >/dev/null
+          branch="$(gh api "repos/$GITHUB_REPOSITORY" --jq .default_branch)"
+          git fetch --no-tags origin "$branch"
+          sha="$(git ls-tree FETCH_HEAD -- patches.json | awk '{print $3}')"
+          jq -n --arg branch "$branch" --arg sha "$sha" \
+            --rawfile manifest "$MANIFEST_PATH" \
+            '{branch: $branch,
+              message: "chore(release): 配布用patches.jsonを更新",
+              content: ($manifest | @base64)} +
+             (if $sha == "" then {} else {sha: $sha} end)' > manifest-update.json
+          test "$(gh api "repos/$GITHUB_REPOSITORY/releases/latest" --jq .tag_name)" = "$GITHUB_REF_NAME"
+          gh api --method PUT "repos/$GITHUB_REPOSITORY/contents/patches.json" \
+            --input manifest-update.json

@@ -1,5 +1,11 @@
 # 更新手順
 
+## ReVanced Manager向けJSONの配布
+
+登録用URLは `https://raw.githubusercontent.com/roflsunriz/vpass-revanced/main/patches.json` です。
+
+release workflowは、リリースの公開に成功した後、生成した `patches.json` を既定ブランチへ同期します。最新リリース以外の再実行では同期せず、JSONの版不一致や同時更新を検出した場合は失敗します。失敗時は最新リリースのJSONと既定ブランチの差分を確認し、最新のJSONだけを再反映してください。RVPの配布先はGitHub Releasesのままです。
+
 ## 1. 新しい APK を追加する
 
 `vpass-apks/` に対象バージョンの単一 APK を置きます。ファイル名は次の形式に合わせます。

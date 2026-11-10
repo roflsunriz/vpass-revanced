@@ -1,5 +1,7 @@
 # 調査知見
 
+- Manager登録用のraw URLは既定ブランチ直下の `patches.json` を読む。release workflowの最後で、最新リリースのJSONだけを同ブランチへ同期する。旧リリース再実行は更新対象外で、JSONの版と現在のblob SHAを検証するため、URLだけを変更してJSON配置・同期を省略しない。
+
 ## 対象と保護機構
 
 - 対象は `com.smbc_card.vpass`（minSdk 29、targetSdk 36）。APK は単一 APK で、5.14.1 は 6 DEX・arm64/armeabi-v7a/x86/x86_64 のネイティブライブラリを含む。

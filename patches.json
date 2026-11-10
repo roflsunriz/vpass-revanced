@@ -1,0 +1,7 @@
+{
+  "download_url": "https://github.com/roflsunriz/vpass-revanced/releases/latest/download/vpass-patches.rvp",
+  "created_at": "2026-10-24T14:54:33",
+  "signature_download_url": null,
+  "description": "三井住友カード Vpass アプリの Root・改ざん・USB デバッグ検知を無効化する ReVanced パッチ",
+  "version": "0.1.0"
+}

@@ -36,7 +36,7 @@
 ReVanced Manager の「Patches」タブで追加ボタンを押し、「Enter URL」に次を入力します。
 
 ```text
-https://github.com/roflsunriz/vpass-revanced/releases/latest/download/patches.json
+https://raw.githubusercontent.com/roflsunriz/vpass-revanced/main/patches.json
 ```
 
 読み込み後、「Apps」タブで Vpass の単一 APK を選び、次のいずれかを適用します。

@@ -1,5 +1,11 @@
 # 検証手順と結果
 
+## 2026-11-10: README本文と配布情報の整備
+
+- 登録用URLをraw.githubusercontent.comへ統一し、patches.jsonのversionとdownload_urlを現在の公開リリース資産と照合した。
+- release workflowはactionlintとShellCheckに合格した。JSON同期処理は、既存ファイル更新、新規作成、旧リリースの除外、版不一致、最新リリースの変更、書込み競合の6ケースを模擬APIで確認した。
+- 今回は文書と配布メタデータの変更で、アプリ本体のビルド・端末への適用・新規リリースは実施していない。
+
 ## 環境
 
 - Windows / PowerShell
